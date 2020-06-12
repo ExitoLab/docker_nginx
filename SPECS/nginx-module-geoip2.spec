@@ -17,7 +17,7 @@ BuildRequires: redhat-lsb-core
 BuildRequires: libmaxminddb-devel
 %define epoch 1
 Epoch: %{epoch}
-%define os_minor %(lsb_release -rs | cut -d '.' -f 2)
+%define os_minor %(lsb_rele1.19.0ase -rs | cut -d '.' -f 2)
 %if %{os_minor} >= 4
 %define dist .el7_4
 %else
@@ -25,14 +25,15 @@ Epoch: %{epoch}
 %endif
 %endif
 
-%define main_version 1.15.0
+%define os_minor %(lsb_rele1.19.0ase -rs | cut -d '.' -f 2)
+%define main_version 1.19.0
 %define main_release 1%{?dist}.ngx
 
 %define bdir %{_builddir}/%{name}-%{main_version}
 
 Summary: nginx GeoIP2 dynamic modules
 Name: nginx-module-geoip2
-Version: 1.15.0
+Version: 1.19.0
 Release: 1%{?dist}.ngx
 Vendor: Nginx, Inc.
 URL: http://nginx.org/
@@ -47,7 +48,7 @@ License: 2-clause BSD-like license
 BuildRoot: %{_tmppath}/%{name}-%{main_version}-%{main_release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-Requires: nginx == %{?epoch:%{epoch}:}1.15.0-1%{?dist}.ngx
+Requires: nginx == %{?epoch:%{epoch}:}1.19.0-1%{?dist}.ngx
 
 %description
 nginx GeoIP2 dynamic modules.
@@ -119,4 +120,4 @@ fi
 
 %changelog
 * Tue Mar 20 2018 Merritt Krakowitzer <merritt@krakowitzer.com>
-- initial specfile creation 1.15.0
+- initial specfile creation 1.19.0
